@@ -1,50 +1,47 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: none → 1.0.0
+Modified principles: initial constitution created
+Added sections: Scope and Constraints, Development Workflow
+Removed sections: none
+Templates requiring updates:
+- `.specify/templates/plan-template.md` ✅ no change required
+- `.specify/templates/spec-template.md` ✅ no change required
+- `.specify/templates/tasks-template.md` ✅ no change required
+Follow-up TODOs: none
+-->
+
+# ContosoDashboard Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Training Safety and Transparency
+All repository design and documentation MUST be explicit that ContosoDashboard is a training-only application. Training-specific implementations MUST not be treated as production-ready behavior, and any production migration path MUST be documented clearly.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Spec-Driven Development
+All feature work MUST begin with a specification and planning artifacts in `.specify`. Changes MUST be traceable to a spec, and every PR MUST reference the applicable spec or task set.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Security Boundary Discipline
+Authorization, access control, and IDOR protections MUST be enforced at page, service, and data-query boundaries. Mock authentication and training-only controls MUST remain isolated from any production-security claims.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simplicity, Abstraction, and Separation
+Code changes MUST preserve clear separation between UI, service, and data layers and avoid premature production complexity. Training implementations MUST favor readability and maintainability over optimization.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Continuous Quality and Review
+All feature or architecture changes MUST include documentation, rationale, and review. Tests and documentation updates MUST accompany changes that affect behavior, security, or user experience.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Scope and Constraints
+The repository MUST remain offline-friendly and self-contained. External service integration is prohibited unless a training stub, placeholder, or migration note is explicitly documented. This constitution applies to code, documentation, and architecture decisions.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+Feature work MUST follow the Speckit workflow: specification first, plan second, task breakdown third, then implementation. Pull requests MUST verify constitution compliance, include design rationale, and update end-user or architecture documentation when scope changes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution supersedes informal conventions and is the reference for repository governance.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- Amendments to this constitution MUST be documented in `.specify/memory/constitution.md` and reviewed by repository maintainers.
+- All PRs MUST confirm whether proposed changes preserve training-only assumptions and security boundaries.
+- Compliance checks for the constitution SHOULD be included in PR descriptions and review checklists.
+- Any change that expands repository scope beyond training or adds external dependencies MUST include an explicit migration plan and approval note.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-04-26 | **Last Amended**: 2026-04-26
